@@ -28,8 +28,9 @@ bot.onText(/unih/ig, function (msg, match) {
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
   var photo = './unih.png';
-  console.log('UNIH', chatId, photo)
-  bot.sendPhoto(chatId, photo, {caption: 'Almeno ringrazia, 5 euro dai...'});
+  bot.sendPhoto(chatId, photo, {caption: 'Almeno ringrazia, 5 euro dai...'}).then(function(sent) {
+    console.log('UNIH SENT')
+  });
 });
  
 
