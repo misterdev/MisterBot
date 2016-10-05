@@ -10,9 +10,9 @@ var bot = new TelegramBot(token, {polling: true});
 
 // Matches /echo [whatever]
 bot.onText(/erik/ig, function (msg, match) {
-  var fromId = msg.chat.id;
+  var chatId = msg.chat.id;
   var resp = 'culo';
-  bot.sendMessage(fromId, resp);
+  bot.sendMessage(chatId, resp);
 });
 
 bot.onText(/misterbot\?/ig, function (msg, match) {
@@ -74,6 +74,18 @@ bot.onText(/^iniettiv*/, function (msg, match) {
   // photo can be: a file path, a stream or a Telegram file_id
   var photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Injection.svg/170px-Injection.svg.png';
   bot.sendMessage(chatId, photo, {caption: 'f compre il dominio'});
+});
+
+bot.onText(/banale/ig, function (msg, match) {
+  var chatId = msg.chat.id;
+  var resp = 'banane';
+  bot.sendMessage(chatId, resp);
+});
+
+bot.onText(/del\ genere/ig, function (msg, match) {
+  var chatId = msg.chat.id;
+  var resp = 'Può accompagnare solo';
+  bot.sendMessage(chatId, resp);
 });
 // bot.onText(/bus/, function (msg, match) {
 //   console.log('hellobus', msg)
