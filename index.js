@@ -27,7 +27,7 @@ bot.onText(/unih/ig, function (msg, match) {
   console.log('UNIH')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
-  var photo = 'https://lh3.googleusercontent.com/scSO_uE8C_6H9lHe9hY-KwU7T5f6xjdK4ORfWbhpbU5sC6Zo6kqIbORQQ0IilX5EfNK4nGN2dMpRVvM=w2202-h1860-rw';//'./unih.png';
+  var photo = process.env.PWD + '/unih.png' || './unih.png';
   console.log('UNIH', chatId, photo)
   bot.sendPhoto(chatId, photo, {caption: 'Almeno ringrazia, 5 euro dai...'});
 });
