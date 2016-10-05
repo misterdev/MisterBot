@@ -27,7 +27,7 @@ bot.on('message', function (msg, match) {
   console.log('UNIH')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
-  var photo = 'http://www.starcoppe.it/images/grafica-immagine-b.jpg';//'unih.png';
+  var photo = 'https://s4.postimg.org/99mai2kgt/Screen_Shot_2016_09_20_at_19_23_37_2.png';
 
   bot.sendPhoto(chatId, photo, {caption: 'Almeno ringrazia, 5 euro dai...'}).then(function(sent) {
     console.log('UNIH SENT')
