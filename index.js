@@ -68,7 +68,7 @@ bot.onText(/^suriettiv*/, function (msg, match) {
   var photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Surjection.svg/220px-Surjection.svg.png';
   bot.sendMessage(chatId, photo, {caption: 'f compre il codominio'});
 });
-bot.onText(/iniettiv*/, function (msg, match) {
+bot.onText(/^iniettiv*/, function (msg, match) {
   console.log('bus<')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
