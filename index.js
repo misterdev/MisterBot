@@ -17,15 +17,17 @@ bot.onText(/erik/ig, function (msg, match) {
 bot.onText(/misterbot\?/ig, function (msg, match) {
   var fromId = msg.chat.id;
   var resp = 'Ciao sono MisterBot e sono diventato un bot bravo, infatti ora utilizzo le API ufficiali. '+ 
-  'Diventerò molto utile in futuro se Devid non si stanca di lavorare su di me. Intanto gustatevi un /unih ' +
+  'Diventerò molto utile in futuro se Devid non si stanca di lavorare su di me. Intanto gustatevi un unih ' +
   'Ringrazio il Doge Team per il supporto alla mia creazione ';
   bot.sendMessage(fromId, resp);
 });
 
 bot.onText(/unih/ig, function (msg, match) {
+  console.log('UNIH')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
-  var photo = 'unih.png';
+  var photo = './unih.png';
+  console.log('UNIH', chatId, photo)
   bot.sendPhoto(chatId, photo, {caption: 'Almeno ringrazia, 5 euro dai...'});
 });
  
