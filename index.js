@@ -60,6 +60,33 @@ bot.onText(/bus</, function (msg, match) {
     console.error(a,b,c)
   });
 });
+
+bot.onText(/^suriettiv*/, function (msg, match) {
+  console.log('bus<')
+  var chatId = msg.chat.id;
+  // photo can be: a file path, a stream or a Telegram file_id
+  var photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Surjection.svg/220px-Surjection.svg.png';
+  bot.sendMessage(chatId, photo, {caption: 'f compre il codominio'});
+});
+bot.onText(/iniettiv*/, function (msg, match) {
+  console.log('bus<')
+  var chatId = msg.chat.id;
+  // photo can be: a file path, a stream or a Telegram file_id
+  var photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Injection.svg/170px-Injection.svg.png';
+  bot.sendMessage(chatId, photo, {caption: 'f compre il dominio'});
+});
+// bot.onText(/bus/, function (msg, match) {
+//   console.log('hellobus', msg)
+//   var chatId = msg.chat.id;
+//   // photo can be: a file path, a stream or a Telegram file_id
+//   var photo = 'https://s13.postimg.org/tmiddr57b/Screen_Shot_2016_10_05_at_21_32_55.png';
+
+//   bot.sendPhoto(chatId, photo, {caption: 'Bus 93 Bologna > Minerbio'}).then(function(sent) {
+//     console.log('bus< SENT')
+//   }).catch(function(a,b,c) {
+//     console.error(a,b,c)
+//   });
+// });
 // Any kind of message
 // bot.on('message', function (msg) {
 //   var chatId = msg.chat.id;
