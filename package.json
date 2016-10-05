@@ -6,6 +6,9 @@
   "scripts": {
     "test": "test"
   },
+  "engines": {
+    "node": "6.2.2"
+  },
   "author": "Devid Farinelli",
   "license": "ISC",
   "dependencies": {
