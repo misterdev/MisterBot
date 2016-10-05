@@ -1,0 +1,14 @@
+{
+  "name": "telebot",
+  "version": "1.0.0",
+  "description": "A bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Devid Farinelli",
+  "license": "ISC",
+  "dependencies": {
+    "telegram-node-bot": "^4.0.3"
+  }
+}
