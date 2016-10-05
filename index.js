@@ -9,13 +9,13 @@ var bot = new TelegramBot(token, {polling: true});
 
 // Matches /echo [whatever]
 bot.onText(/erik/ig, function (msg, match) {
-  var fromId = msg.from.id;
+  var fromId = msg.chat.id;
   var resp = 'culo';
   bot.sendMessage(fromId, resp);
 });
 
 bot.onText(/misterbot\?/ig, function (msg, match) {
-  var fromId = msg.from.id;
+  var fromId = msg.chat.id;
   var resp = 'Ciao sono MisterBot e sono diventato un bot bravo, infatti ora utilizzo le API ufficiali. '+ 
   'Diventerò molto utile in futuro se Devid non si stanca di lavorare su di me. Intanto gustatevi un /unih ' +
   'Ringrazio il Doge Team per il supporto alla mia creazione ';
