@@ -23,7 +23,7 @@ bot.onText(/misterbot\?/ig, function (msg, match) {
   bot.sendMessage(fromId, resp);
 });
 
-bot.on('message', function (msg, match) {
+bot.onText(/unih/, function (msg, match) {
   console.log('UNIH')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
