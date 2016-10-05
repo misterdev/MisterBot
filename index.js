@@ -5,7 +5,7 @@ var crt = 'MIIC3zCCAccCAQAwazELMAkGA1UEBhMCSVQxEDAOBgNVBAgTB0JvbG9nbmExETAPBgNVB
 var heroku_url = process.env.HEROKU_URL || 'https://powerful-beach-16130.herokuapp.com/'; 
 // Setup polling way
 var bot = new TelegramBot(token, {polling: true});
-bot.setWebHook(heroku_url + bot.token, crt);
+// bot.setWebHook(heroku_url + bot.token, crt);
 
 // Matches /echo [whatever]
 bot.onText(/erik/ig, function (msg, match) {
