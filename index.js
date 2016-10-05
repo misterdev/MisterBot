@@ -35,8 +35,31 @@ bot.onText(/unih/, function (msg, match) {
     console.error(a,b,c)
   });
 });
- 
 
+bot.onText(/bus>/, function (msg, match) {
+  console.log('bus>')
+  var chatId = msg.chat.id;
+  // photo can be: a file path, a stream or a Telegram file_id
+  var photo = 'https://s11.postimg.org/98gra0n43/Screen_Shot_2016_10_05_at_21_30_59.png';
+
+  bot.sendPhoto(chatId, photo, {caption: 'Bus 93 Minerbio > Bologna'}).then(function(sent) {
+    console.log('bus> SENT')
+  }).catch(function(a,b,c) {
+    console.error(a,b,c)
+  });
+});
+bot.onText(/bus</, function (msg, match) {
+  console.log('bus<')
+  var chatId = msg.chat.id;
+  // photo can be: a file path, a stream or a Telegram file_id
+  var photo = 'https://s13.postimg.org/tmiddr57b/Screen_Shot_2016_10_05_at_21_32_55.png';
+
+  bot.sendPhoto(chatId, photo, {caption: 'Bus 93 Bologna > Minerbio'}).then(function(sent) {
+    console.log('bus< SENT')
+  }).catch(function(a,b,c) {
+    console.error(a,b,c)
+  });
+});
 // Any kind of message
 // bot.on('message', function (msg) {
 //   var chatId = msg.chat.id;
