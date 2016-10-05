@@ -12,6 +12,7 @@
   "author": "Devid Farinelli",
   "license": "ISC",
   "dependencies": {
+    "node-telegram-bot-api": "^0.23.3",
     "telegram-node-bot": "^4.0.3"
   }
 }
