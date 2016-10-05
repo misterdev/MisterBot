@@ -78,15 +78,16 @@ bot.onText(/^iniettiv*/, function (msg, match) {
 
 bot.onText(/banale/ig, function (msg, match) {
   var chatId = msg.chat.id;
-  var resp = 'banane';
+  var resp = '...banane ';
   bot.sendMessage(chatId, resp);
 });
 
 bot.onText(/del\ genere/ig, function (msg, match) {
   var chatId = msg.chat.id;
-  var resp = 'Può accompagnare solo';
+  var resp = 'Può accompagnare solo...';
   bot.sendMessage(chatId, resp);
 });
+
 // bot.onText(/bus/, function (msg, match) {
 //   console.log('hellobus', msg)
 //   var chatId = msg.chat.id;
