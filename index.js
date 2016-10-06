@@ -9,9 +9,9 @@ const bot = new TelegramBot(token, {polling: true});
 
 // Matches /echo [whatever]
 bot.onText(/erik/ig, function (msg, match) {
-  // var chatId = msg.chat.id;
-  // var resp = 'culo';
-  // bot.sendMessage(chatId, resp);
+  var chatId = msg.chat.id;
+  var resp = 'culo';
+  bot.sendMessage(chatId, resp);
 });
 
 bot.onText(/misterbot\?/ig, function (msg, match) {
@@ -93,7 +93,7 @@ bot.on('message', function(msg) {
     var chatId = msg.chat.id;
     // console.log
     // if(userID === 'xmascdbot') {
-        bot.sendMessage(chatId, 'Sciaquati la bocca quando parli della mi famiglia')
+        // bot.sendMessage(chatId, 'Sciaquati la bocca quando parli della mi famiglia')
     // }
 })
 // bot.onText(/bus/, function (msg, match) {
