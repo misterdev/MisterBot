@@ -1,8 +1,8 @@
-let dev = {};
-try {
-  dev = require('./env');
-} catch (ex) {}
-
+// let dev = {};
+// try {
+//   dev = require('./env');
+// } catch (ex) {}
+const dev = {}
 const TelegramBot = require('node-telegram-bot-api');
 
 const token = '266208728:AAHsolf1IVFQ3I6OWPv6PMQK_3T6jsPWb5E' || process.env.TELEGRAM_TOKEN || dev.TELEGRAM_TOKEN;
