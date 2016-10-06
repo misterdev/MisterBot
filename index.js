@@ -76,6 +76,14 @@ bot.onText(/^iniettiv*/, function (msg, match) {
   bot.sendMessage(chatId, photo, {caption: 'f compre il dominio'});
 });
 
+bot.onText(/^trigo*/, function (msg, match) {
+  console.log('trigo')
+  var chatId = msg.chat.id;
+  // photo can be: a file path, a stream or a Telegram file_id
+  var photo = 'https://s12.postimg.org/heozwfcjh/Screen_Shot_2016_10_06_at_14_01_39.png';
+  bot.sendMessage(chatId, photo, {caption: 'Non imparerai mai la trigonometria, merda!'});
+});
+
 bot.onText(/banale/ig, function (msg, match) {
   var chatId = msg.chat.id;
   var resp = '...banane ';
