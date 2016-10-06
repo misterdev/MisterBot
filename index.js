@@ -5,7 +5,7 @@ try {
 
 const TelegramBot = require('node-telegram-bot-api');
 
-const token = process.env.TOKEN || dev.TELEGRAM_TOKEN;
+const token = process.env.TELEGRAM_TOKEN || dev.TELEGRAM_TOKEN;
 const heroku_url = process.env.HEROKU_URL || dev.HEROKU_URL; 
 // Setup polling way
 const bot = new TelegramBot(token, {polling: true});
