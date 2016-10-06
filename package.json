@@ -4,8 +4,7 @@
   "description": "A bot",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "start": "nf start"
+    "test": "test"
   },
   "engines": {
     "node": "6.2.2"
@@ -13,7 +12,6 @@
   "author": "Devid Farinelli",
   "license": "ISC",
   "dependencies": {
-    "foreman": "2.0.0",
     "node-telegram-bot-api": "^0.23.3"
   }
 }
