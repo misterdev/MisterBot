@@ -87,13 +87,13 @@ bot.onText(/del\ genere/ig, function (msg, match) {
   bot.sendMessage(chatId, resp);
 });
 
-bot.onText(/misterbotdev/ig, function(msg) {
-    var userID = msg.from.name;
-    var chatId = msg.chat.id;
-    console.error('we')
-    if(userID === 'xmascdbot') {
-        but.sendMessage(chatId, 'Sciaquati la bocca quando parli della mi famiglia')
-    }
+bot.on('message', function(msg) {
+    // var userID = msg.from.name;
+    // var chatId = msg.chat.id;
+    // console.error('we', msg)
+    // if(userID === 'xmascdbot') {
+    //     but.sendMessage(chatId, 'Sciaquati la bocca quando parli della mi famiglia')
+    // }
 })
 // bot.onText(/bus/, function (msg, match) {
 //   console.log('hellobus', msg)
