@@ -2,11 +2,11 @@
 // try {
 //   dev = require('./env');
 // } catch (ex) {}
-const dev = {}
+// const dev = {}
 const TelegramBot = require('node-telegram-bot-api');
 
-const token = '266208728:AAHsolf1IVFQ3I6OWPv6PMQK_3T6jsPWb5E' || process.env.TELEGRAM_TOKEN || dev.TELEGRAM_TOKEN;
-const heroku_url = process.env.HEROKU_URL || dev.HEROKU_URL; 
+const token = '266208728:AAHsolf1IVFQ3I6OWPv6PMQK_3T6jsPWb5E';// || process.env.TELEGRAM_TOKEN || dev.TELEGRAM_TOKEN;
+// const heroku_url = process.env.HEROKU_URL || dev.HEROKU_URL; 
 // Setup polling way
 const bot = new TelegramBot(token, {polling: true});
 // bot.setWebHook(heroku_url + bot.token, crt);
