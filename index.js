@@ -23,7 +23,7 @@ bot.onText(/misterbot\?/ig, function (msg, match) {
   bot.sendMessage(fromId, resp);
 });
 
-bot.onText(/unih/, function (msg, match) {
+bot.onText(/unih/ig, function (msg, match) {
   console.log('UNIH')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
@@ -36,7 +36,7 @@ bot.onText(/unih/, function (msg, match) {
   });
 });
 
-bot.onText(/bus>/, function (msg, match) {
+bot.onText(/bus>/ig, function (msg, match) {
   console.log('bus>')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
@@ -48,7 +48,7 @@ bot.onText(/bus>/, function (msg, match) {
     console.error(a,b,c)
   });
 });
-bot.onText(/bus</, function (msg, match) {
+bot.onText(/bus</ig, function (msg, match) {
   console.log('bus<')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
@@ -61,14 +61,14 @@ bot.onText(/bus</, function (msg, match) {
   });
 });
 
-bot.onText(/^suriettiv*/, function (msg, match) {
+bot.onText(/^suriettiv*/ig, function (msg, match) {
   console.log('bus<')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
   var photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Surjection.svg/220px-Surjection.svg.png';
   bot.sendMessage(chatId, photo, {caption: 'f compre il codominio'});
 });
-bot.onText(/^iniettiv*/, function (msg, match) {
+bot.onText(/^iniettiv*/ig, function (msg, match) {
   console.log('bus<')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
@@ -76,7 +76,7 @@ bot.onText(/^iniettiv*/, function (msg, match) {
   bot.sendMessage(chatId, photo, {caption: 'f compre il dominio'});
 });
 
-bot.onText(/^trigo*/, function (msg, match) {
+bot.onText(/^trigo*/ig, function (msg, match) {
   console.log('trigo')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
