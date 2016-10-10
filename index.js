@@ -26,6 +26,7 @@ bot.onText(/dab/ig, function (msg, match) {
     console.error(a,b,c)
   });
 });
+
 bot.onText(/allarmeporco/ig, function (msg, match) {
   console.log('UNIH')
   var chatId = msg.chat.id;
@@ -45,7 +46,17 @@ bot.onText(/misterbot\?/ig, function (msg, match) {
   'Ringrazio il Doge Team per il supporto alla mia creazione ';
   bot.sendMessage(fromId, resp);
 });
+bot.onText(/tesi/ig, function (msg, match) {
+  var fromId = msg.chat.id;
+  var resp = `
+Stile by cianca: 
+http://www.cs.unibo.it/~cianca/wwwpages/consigli.html
 
+LateX by unibo:
+http://corsi.unibo.it/informatica/Pagine/tesi-in-latex.aspx
+  `;
+  bot.sendMessage(fromId, resp);
+});
 bot.onText(/unih/ig, function (msg, match) {
   console.log('UNIH')
   var chatId = msg.chat.id;
