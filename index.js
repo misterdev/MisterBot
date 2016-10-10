@@ -14,7 +14,30 @@ bot.onText(/erik/ig, function (msg, match) {
   var resp = 'culo';
   bot.sendMessage(chatId, resp);
 });
+bot.onText(/dab/ig, function (msg, match) {
+  console.log('UNIH')
+  var chatId = msg.chat.id;
+  // photo can be: a file path, a stream or a Telegram file_id
+  var photo = 'https://media.giphy.com/media/l3zoKeX8bMG5sMP4s/giphy.gif';
 
+  bot.sendDocument(chatId, photo, {caption: 'ALLARME PORCO!'}).then(function(sent) {
+    console.log('UNIH SENT')
+  }).catch(function(a,b,c) {
+    console.error(a,b,c)
+  });
+});
+bot.onText(/allarmeporco/ig, function (msg, match) {
+  console.log('UNIH')
+  var chatId = msg.chat.id;
+  // photo can be: a file path, a stream or a Telegram file_id
+  var photo = 'http://i.giphy.com/N2C4cpZ3lRhvO.gif';
+
+  bot.sendDocument(chatId, photo, {caption: 'ALLARME PORCO!'}).then(function(sent) {
+    console.log('UNIH SENT')
+  }).catch(function(a,b,c) {
+    console.error(a,b,c)
+  });
+});
 bot.onText(/misterbot\?/ig, function (msg, match) {
   var fromId = msg.chat.id;
   var resp = 'Ciao sono MisterBot e sono diventato un bot bravo, infatti ora utilizzo le API ufficiali. '+ 
