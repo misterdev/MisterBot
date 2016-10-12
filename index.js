@@ -8,12 +8,33 @@ console.log(process.env)
 var bot = new TelegramBot(token, {polling: true});
 // bot.setWebHook(heroku_url + bot.token, crt);
 
+
+bot.onText(/send*/ig, function (msg, match) {
+  if(msg.chat.if === 27920409) {
+    bot.sendPhoto(4454704, 'https://s3.postimg.org/442z2sl4z/triggered.png', {caption: ''}).then(function(sent) {
+      console.log('UNIH SENT')
+    }).catch(function(a,b,c) {
+      console.error(a,b,c)
+    });
+  }
+});
+
 // Matches /echo [whatever]
 bot.onText(/erik/ig, function (msg, match) {
   var chatId = msg.chat.id;
   var resp = 'culo';
   bot.sendMessage(chatId, resp);
 });
+
+bot.on('new_chat_participant', function(msg) {
+  var chatId = msg.chat.id;
+  var string = 'Benvenuto '+ msg.new_chat_member.first_name +'! Chi sei?';
+  bot.sendMessage(chatId, string);
+});
+
+bot.on('message', function (msg) {
+  console.log('YYYYYYYYY', msg)
+})
 bot.onText(/dab/ig, function (msg, match) {
   console.log('UNIH')
   var chatId = msg.chat.id;
