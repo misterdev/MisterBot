@@ -9,7 +9,7 @@ var bot = new TelegramBot(token, {polling: true});
 // bot.setWebHook(heroku_url + bot.token, crt);
 
 
-bot.onText(/send*/ig, function (msg, match) {
+bot.onText(/\/triggered/ig, function (msg, match) {
   if(msg.chat.if === 27920409) {
     bot.sendPhoto(4454704, 'https://s3.postimg.org/442z2sl4z/triggered.png', {caption: ''}).then(function(sent) {
       console.log('UNIH SENT')
