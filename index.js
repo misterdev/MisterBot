@@ -67,7 +67,7 @@ bot.onText(/misterbot\?/ig, function (msg, match) {
   'Ringrazio il Doge Team per il supporto alla mia creazione ';
   bot.sendMessage(fromId, resp);
 });
-bot.onText(/tesi/ig, function (msg, match) {
+bot.onText(/\/tesi/ig, function (msg, match) {
   var fromId = msg.chat.id;
   var resp = `
 Stile by cianca: 
