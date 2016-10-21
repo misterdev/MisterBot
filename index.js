@@ -3,7 +3,7 @@ var TelegramBot = require('node-telegram-bot-api');
 var token = '266208728:AAHsolf1IVFQ3I6OWPv6PMQK_3T6jsPWb5E' || process.env.TOKEN;
 var crt = 'MIIC3zCCAccCAQAwazELMAkGA1UEBhMCSVQxEDAOBgNVBAgTB0JvbG9nbmExETAPBgNVBAcTCE1pbmVyYmlvMQ0wCwYDVQQDEwRGT09OMSgwJgYJKoZIhvcNAQkBFhlkZXZpZC5mYXJpbmVsbGlAZ21haWwuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA47Kw423OEmpcsSNSdsZyTh6Xy1W+U+w/GFUiHrcwXdKJ0Fe2UCdaR4hU61ZTq+nVLvbGl6OY3svQsESvnig3OW1Fc28K69bcxofNCd3jolRiNrPw4FDTkZtXpm0apppH42aLJtz87cMFSKeLVS/xBzypjVAejHfRw4gGrEwwJJYcd3xEUCR42HXcZ7b6DayhbdxkYzAOYPtaMj0v4ZqG8IO0/dm8X6EDGseoDRFka+5noP4ifjmN7HFNsDUuKu0BVHbf+WN/7djjUTYHDzP8BOdzmtdTPEedMI61sZ6Ey3G7O/FVkPkGDUZN/F64lXcKjQsbwI3xNoM2HH8P4GomjwIDAQABoC8wFQYJKoZIhvcNAQkHMQgTBmxvbGxvMTAWBgkqhkiG9w0BCQIxCRMHZGV2IHNybDANBgkqhkiG9w0BAQsFAAOCAQEALeohDSbdbIVPy54N24qnigakLxjshVRbQQS6qeGkzKgz3y6LfVisDrXmguAY4KfXOAN1KgsF07VVrPhMtXSe+LvvDMe/xZ3JoJK98mJ8yCDoQk2h2WEur52A1I3wYml0+qS/9bWRvoRxlk8I2WTQWa61ri7oVusWpFCll1fu7HvD6/OulfKcktfOWlLyNJVaa1fR2TQgyLOTmFoJyI0ug9CvKkFnrnrbJL3iLrhtrgoADvrtZbLS8jHMWy7BsNeyRkBrmexOLb6kzmmAOjLp6RqOpVJQXZ4Gtv8xSZeaUDMVBDIDyOG3BZe1JWPAyS9Lx8uAviHJC+6fv3ZHIP6E4w=='
 var heroku_url = process.env.HEROKU_URL || 'https://powerful-beach-16130.herokuapp.com/'; 
-console.log(process.env)
+console.log('TELEBOT - STARTED')
 // Setup polling way
 var bot = new TelegramBot(token, {polling: true});
 // bot.setWebHook(heroku_url + bot.token, crt);
@@ -233,3 +233,25 @@ bot.onText(/del\ genere/ig, function (msg, match) {
 //         new TextCommand('erik', 'erikCommand'),
 //         new PingController()
 //     )
+
+let moment = require('moment');
+let exams = {};
+
+exams['Basi di Dati'] = ['17/01/2017', '23/05/2017', '06/06/2017', '27/06/2017', '12/09/2017']
+
+bot.onText(/\/esami/, (msg) => {
+  let chatId = msg.chat.id;
+  var text = '';
+  for(let sub in exams) {
+    text += '<b>' + sub +'</b>\n';
+    for(let date of exams[sub]) {
+      text += moment(date, 'DD/MM/YYYY').format('DD/MM') + ' - ';// + '(' + moment(date, 'DD/MM/YYYY').toNow(true) + ') - '
+    }
+    text += '\n';
+  }
+  bot.sendMessage(chatId, text, { parse_mode: "HTML" });
+})
+
+
+
+
