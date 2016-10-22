@@ -243,11 +243,11 @@ bot.onText(/\/esami/, (msg) => {
   let chatId = msg.chat.id;
   var text = '';
   for(let sub in exams) {
-    text += '<b>' + sub +'</b>\n';
+    text += '<b>' + sub +'</b><pre>';
     for(let date of exams[sub]) {
       text += moment(date, 'DD/MM/YYYY').format('DD/MM') + ' - ';// + '(' + moment(date, 'DD/MM/YYYY').toNow(true) + ') - '
     }
-    text += '\n';
+    text = text.substring(0, text.length -3) + '</pre>\n';
   }
   bot.sendMessage(chatId, text, { parse_mode: "HTML" });
 })
