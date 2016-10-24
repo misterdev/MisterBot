@@ -30,13 +30,13 @@ bot.onText(/\/triggered/ig, function (msg, match) {
 bot.onText(/erik/ig, function (msg, match) {
   console.log(msg, match)
   var chatId = msg.chat.id;
-  var resp = msg.text.replace('erik', 'culo');
+  var resp = msg.text.replace(/erik/ig, 'culo');
   bot.sendMessage(chatId, resp);
 });
 
 bot.onText(/culo/ig, function (msg, match) {
   var chatId = msg.chat.id;
-  var resp = msg.text.replace('culo', 'erik');
+  var resp = msg.text.replace(/culo/ig, 'erik');
   bot.sendMessage(chatId, resp);
 });
 
