@@ -34,6 +34,12 @@ bot.onText(/erik/ig, function (msg, match) {
   bot.sendMessage(chatId, resp);
 });
 
+bot.onText(/culo/ig, function (msg, match) {
+  var chatId = msg.chat.id;
+  var resp = msg.text.replace('culo', 'erik');
+  bot.sendMessage(chatId, resp);
+});
+
 bot.on('new_chat_participant', function(msg) {
   var chatId = msg.chat.id;
   var string = 'Benvenuto '+ msg.new_chat_member.first_name +'! Chi sei?';
