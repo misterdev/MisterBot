@@ -36,6 +36,13 @@ bot.onText(/erik/ig, function (msg, match) {
   }
 });
 
+bot.onText(/n4t4l3/ig, function (msg, match) {
+  console.log(msg, match)
+  var chatId = msg.chat.id;
+  var resp = msg.text.replace(/n4t4l3/ig, 'natale');
+  bot.sendMessage(chatId, resp);
+});
+
 bot.onText(/culo/ig, function (msg, match) {
   var chatId = msg.chat.id;
   if(chatId !== -179683645) {
