@@ -28,8 +28,9 @@ bot.onText(/\/triggered/ig, function (msg, match) {
 
 // Matches /echo [whatever]
 bot.onText(/erik/ig, function (msg, match) {
+  console.log(msg, match)
   var chatId = msg.chat.id;
-  var resp = 'culo';
+  var resp = msg.text.replace('erik', 'culo');
   bot.sendMessage(chatId, resp);
 });
 
