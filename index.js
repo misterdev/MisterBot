@@ -30,14 +30,18 @@ bot.onText(/\/triggered/ig, function (msg, match) {
 bot.onText(/erik/ig, function (msg, match) {
   console.log(msg, match)
   var chatId = msg.chat.id;
-  var resp = msg.text.replace(/erik/ig, 'culo');
-  bot.sendMessage(chatId, resp);
+  if(chatId !== -179683645) {
+    var resp = msg.text.replace(/erik/ig, 'culo');
+    bot.sendMessage(chatId, resp);
+  }
 });
 
 bot.onText(/culo/ig, function (msg, match) {
   var chatId = msg.chat.id;
-  var resp = msg.text.replace(/culo/ig, 'erik');
-  bot.sendMessage(chatId, resp);
+  if(chatId !== -179683645) {
+    var resp = msg.text.replace(/culo/ig, 'erik');
+    bot.sendMessage(chatId, resp);
+  }
 });
 
 bot.on('new_chat_participant', function(msg) {
