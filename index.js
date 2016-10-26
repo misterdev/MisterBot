@@ -256,7 +256,7 @@ let moment = require('moment');
 let exams = {};
 
 exams['Basi di Dati'] = ['17/01/2017', '23/05/2017', '06/06/2017', '27/06/2017', '12/09/2017']
-exams['Algoritmi @aula pincherle'] = ['19/01/2017 13', '10/02/2017 11']
+exams['Algoritmi @aula pincherle'] = ['19/01/2017 13:00', '10/02/2017 11:00']
 
 bot.onText(/\/esami/, (msg) => {
   let chatId = msg.chat.id;
@@ -265,9 +265,13 @@ bot.onText(/\/esami/, (msg) => {
     text += '<b>' + sub +'</b><pre>';
     for(let date of exams[sub]) {
       var d = moment(date, 'DD/MM/YYYY HH:mm');
-      text += d.format('DD/MM')+ ' h' + d.format('HH') + ' - ';// + '(' + moment(date, 'DD/MM/YYYY').toNow(true) + ') - '
+      text += d.format('DD/MM')
+      var h = d.format('HH');
+      console.error(h)
+      if(h !== moment('00').format('HH')) text += ' h' + h;// + '(' + moment(date, 'DD/MM/YYYY').toNow(true) + ') - '
+      text += ' - ';
     }
-    text = text.substring(0, text.length -3) + '</pre>\n';
+    text = text.substring(0, text.length -2) + '</pre>\n';
   }
   bot.sendMessage(chatId, text, { parse_mode: "HTML" });
 })
