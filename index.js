@@ -116,6 +116,24 @@ bot.onText(/unih/ig, function (msg, match) {
   });
 });
 
+bot.onText(/unixfs/ig, function (msg, match) {
+  console.log('UNIH')
+  var chatId = msg.chat.id;
+  // photo can be: a file path, a stream or a Telegram file_id
+  var photo = 'http://i65.tinypic.com/2i9l6rm.png';
+  var photo2 = 'http://i67.tinypic.com/1zvcoc3.png';
+  bot.sendPhoto(chatId, photo, {caption: ''}).then(function(sent) {
+    console.log('UNIH SENT')
+  }).catch(function(a,b,c) {
+    console.error(a,b,c)
+  });
+  bot.sendPhoto(chatId, photo2, {caption: 'If you\'ve ever wondered...'}).then(function(sent) {
+    console.log('UNIH SENT')
+  }).catch(function(a,b,c) {
+    console.error(a,b,c)
+  });
+});
+
 bot.onText(/bus>/ig, function (msg, match) {
   console.log('bus>')
   var chatId = msg.chat.id;
