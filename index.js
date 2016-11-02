@@ -27,7 +27,7 @@ bot.onText(/\/triggered/ig, function (msg, match) {
 });
 
 // Matches /echo [whatever]
-bot.onText(/erik/ig, function (msg, match) {
+bot.onText(/^erik$/ig, function (msg, match) {
   console.log(msg, match)
   var chatId = msg.chat.id;
   if(chatId !== -179683645) {
@@ -43,7 +43,7 @@ bot.onText(/n4t4l3/ig, function (msg, match) {
   bot.sendMessage(chatId, resp);
 });
 
-bot.onText(/culo/ig, function (msg, match) {
+bot.onText(/^culo$/ig, function (msg, match) {
   var chatId = msg.chat.id;
   if(chatId !== -179683645) {
     var resp = msg.text.replace(/culo/ig, 'erik');
@@ -270,18 +270,18 @@ bot.onText(/del\ genere/ig, function (msg, match) {
 //         new PingController()
 //     )
 
-let moment = require('moment');
-let exams = {};
+var moment = require('moment');
+var exams = {};
 
 exams['Basi di Dati'] = ['17/01/2017', '23/05/2017', '06/06/2017', '27/06/2017', '12/09/2017']
 exams['Algoritmi @aula pincherle'] = ['19/01/2017 13:00', '10/02/2017 11:00']
 
 bot.onText(/\/esami/, (msg) => {
-  let chatId = msg.chat.id;
+  var chatId = msg.chat.id;
   var text = '';
-  for(let sub in exams) {
+  for(var sub in exams) {
     text += '<b>' + sub +'</b><pre>';
-    for(let date of exams[sub]) {
+    for(var date of exams[sub]) {
       var d = moment(date, 'DD/MM/YYYY HH:mm');
       text += d.format('DD/MM')
       var h = d.format('HH');
