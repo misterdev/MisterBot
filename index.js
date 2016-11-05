@@ -57,9 +57,9 @@ bot.on('new_chat_participant', function(msg) {
   bot.sendMessage(chatId, string);
 });
 
-bot.on('message', function (msg) {
-  console.log('YYYYYYYYY', msg)
-})
+// bot.on('message', function (msg) {
+//   console.log('YYYYYYYYY', msg)
+// })
 bot.onText(/dab/ig, function (msg, match) {
   console.log('UNIH')
   var chatId = msg.chat.id;
