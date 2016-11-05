@@ -308,7 +308,7 @@ var doges = [
   'http://doge2048.com/img/212/doge-wink-212.gif'
 ]
 
-bot.onText(/doge/, (msg) => {
+bot.onText(/doge/ig, (msg) => {
   console.log('DOGE')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
