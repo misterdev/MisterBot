@@ -98,6 +98,9 @@ bot.onText(/\/tesi/ig, function (msg, match) {
 Stile by cianca: 
 http://www.cs.unibo.it/~cianca/wwwpages/consigli.html
 
+Tesi by Vitali:
+http://tesi.fabio.web.cs.unibo.it/Tesi/TesiLaDissertazione
+
 LateX by unibo:
 http://corsi.unibo.it/informatica/Pagine/tesi-in-latex.aspx
   `;
