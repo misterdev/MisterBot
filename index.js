@@ -8,6 +8,17 @@ console.log('TELEBOT - STARTED')
 var bot = new TelegramBot(token, {polling: true});
 // bot.setWebHook(heroku_url + bot.token, crt);
 
+bot.onText(/#rekt/ig, function (msg, match) {
+  // if( msg.chat.id == -115069639) {
+    var photo = 'http://i.giphy.com/12kwNiP8SSIUus.gif';
+
+    bot.sendDocument(msg.chat.id, photo, {caption: 'Someone got rekt!'}).then(function(sent) {
+      console.log('REKT SENT')
+    }).catch(function(a,b,c) {
+      console.error(a,b,c)
+    });
+  // }
+});
 
 bot.onText(/\/triggered/ig, function (msg, match) {
   if(msg.from.id === 27920409 && msg.chat.id === 27920409) {//
@@ -162,14 +173,14 @@ bot.onText(/bus</ig, function (msg, match) {
   });
 });
 
-bot.onText(/^suriettiv*/ig, function (msg, match) {
+bot.onText(/\/suriettiv*/ig, function (msg, match) {
   console.log('bus<')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
   var photo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Surjection.svg/220px-Surjection.svg.png';
   bot.sendMessage(chatId, photo, {caption: 'f compre il codominio'});
 });
-bot.onText(/^iniettiv*/ig, function (msg, match) {
+bot.onText(/\/iniettiv*/ig, function (msg, match) {
   console.log('bus<')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
@@ -177,7 +188,7 @@ bot.onText(/^iniettiv*/ig, function (msg, match) {
   bot.sendMessage(chatId, photo, {caption: 'f compre il dominio'});
 });
 
-bot.onText(/^trigo*/ig, function (msg, match) {
+bot.onText(/\/trigo*/ig, function (msg, match) {
   console.log('trigo')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
