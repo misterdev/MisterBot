@@ -1,3 +1,5 @@
+var aerumtor = 213240765; 
+
 var TelegramBot = require('node-telegram-bot-api');
 
 var token = '266208728:AAHsolf1IVFQ3I6OWPv6PMQK_3T6jsPWb5E' || process.env.TOKEN;
@@ -41,8 +43,18 @@ bot.onText(/\/triggered/ig, function (msg, match) {
 bot.onText(/^erik$/ig, function (msg, match) {
   console.log(msg, match)
   var chatId = msg.chat.id;
-  if(chatId !== -179683645) {
+  var userID = msg.from.id;
+
+  if(chatId !== -179683645 && userID !== aerumtor) {
     var resp = msg.text.replace(/erik/ig, 'culo');
+    bot.sendMessage(chatId, resp);
+  }
+});
+bot.onText(/^culo$/ig, function (msg, match) {
+  var chatId = msg.chat.id;
+  var userID = msg.from.id;
+  if(chatId !== -179683645 && userID !== aerumtor) {
+    var resp = msg.text.replace(/culo/ig, 'erik');
     bot.sendMessage(chatId, resp);
   }
 });
@@ -54,13 +66,7 @@ bot.onText(/n4t4l3/ig, function (msg, match) {
   bot.sendMessage(chatId, resp);
 });
 
-bot.onText(/^culo$/ig, function (msg, match) {
-  var chatId = msg.chat.id;
-  if(chatId !== -179683645) {
-    var resp = msg.text.replace(/culo/ig, 'erik');
-    bot.sendMessage(chatId, resp);
-  }
-});
+
 
 bot.on('new_chat_participant', function(msg) {
   var chatId = msg.chat.id;
@@ -68,9 +74,10 @@ bot.on('new_chat_participant', function(msg) {
   bot.sendMessage(chatId, string);
 });
 
-// bot.on('message', function (msg) {
-//   console.log('YYYYYYYYY', msg)
+// bot.on('message', function (msg, x) {
+//   console.log('YYYYYYYYY', msg, x)
 // })
+
 bot.onText(/dab/ig, function (msg, match) {
   console.log('UNIH')
   var chatId = msg.chat.id;
