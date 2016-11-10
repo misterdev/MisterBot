@@ -289,7 +289,7 @@ var exams = {};
 
 exams['Basi di Dati'] = ['17/01/2017', '23/05/2017', '06/06/2017', '27/06/2017', '12/09/2017']
 exams['Algoritmi @aula pincherle'] = ['19/01/2017 13:00', '10/02/2017 11:00']
-exams['UUX - mattina scritto/pomeriggio orale'] = ['18/12/2017',  '15/02/2017']
+exams['UUX - mattina scritto/pomeriggio orale'] = ['18/01/2017',  '15/02/2017']
 
 bot.onText(/\/esami/, (msg) => {
   var chatId = msg.chat.id;
