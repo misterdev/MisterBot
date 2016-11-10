@@ -45,11 +45,17 @@ bot.onText(/^erik$/ig, function (msg, match) {
   var chatId = msg.chat.id;
   var userID = msg.from.id;
 
-  if(chatId !== -179683645 && userID !== aerumtor) {
+  if(userID !== aerumtor) {
+    var photo = 'https://i.ytimg.com/vi/HO8ctP_QNZc/maxresdefault.jpg';
+    bot.sendPhoto(chatId, photo, {caption: ''})
+  } else if(chatId !== -179683645  ) {
     var resp = msg.text.replace(/erik/ig, 'culo');
     bot.sendMessage(chatId, resp);
   }
 });
+
+
+
 bot.onText(/^culo$/ig, function (msg, match) {
   var chatId = msg.chat.id;
   var userID = msg.from.id;
