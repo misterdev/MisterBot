@@ -201,7 +201,7 @@ bot.onText(/\/iniettiv*/ig, function (msg, match) {
   bot.sendMessage(chatId, photo, {caption: 'f compre il dominio'});
 });
 
-bot.onText(/\/trigo*/ig, function (msg, match) {
+bot.onText(/\/trigo$/ig, function (msg, match) {
   console.log('trigo')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
