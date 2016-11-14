@@ -23,14 +23,12 @@ bot.onText(/#rekt/ig, function (msg, match) {
 });
 
 bot.onText(/\/triggered/ig, function (msg, match) {
-  if(msg.from.id === 27920409 && msg.chat.id === 27920409) {//
+  if(msg.from.id === 27920409 && msg.chat.id === 27920409 || msg.from.id === 4454704 && msg.chat.id === 4454704) {//
     bot.sendPhoto(4454704, 'https://s3.postimg.org/442z2sl4z/triggered.png', {caption: 'Someone got triggered..'}).then(function(sent) {
       console.log('UNIH SENT')
     }).catch(function(a,b,c) {
       console.error(a,b,c)
     });
-  }
-  if(msg.from.id === 4454704 && msg.chat.id === 4454704) {//
     bot.sendPhoto(27920409, 'https://s3.postimg.org/442z2sl4z/triggered.png', {caption: 'Someone got triggered..'}).then(function(sent) {
       console.log('UNIH SENT')
     }).catch(function(a,b,c) {
