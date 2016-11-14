@@ -10,11 +10,24 @@ console.log('TELEBOT - STARTED')
 var bot = new TelegramBot(token, {polling: true});
 // bot.setWebHook(heroku_url + bot.token, crt);
 
+var rekt = [
+  'http://i.giphy.com/12kwNiP8SSIUus.gif',
+  'http://i.giphy.com/Mk6T7bHugAPMQ.gif',
+  'http://i.giphy.com/vSR0fhtT5A9by.gif',
+  'http://i.giphy.com/1PiLqGbjbulva.gif',
+  'http://i.giphy.com/hqDces1MY6cgw.gif',
+  'http://i.giphy.com/XMrHbDQGOovbW.gif',
+  'https://media.tenor.co/images/e1f7902f31d2162c9ea3ab0c7a7491e4/raw',
+  'https://media.tenor.co/images/f0515e416fd1ba95974412c18fd90d46/raw',
+  'https://media.giphy.com/media/5HFtrdH9r511m/giphy.gif'
+  // 'http://i.imgur.com/sNlR0KG.jpg'
+]
 bot.onText(/#rekt/ig, function (msg, match) {
   // if( msg.chat.id == -115069639) {
-    var photo = 'http://i.giphy.com/12kwNiP8SSIUus.gif';
 
-    bot.sendDocument(msg.chat.id, photo, {caption: 'Someone got rekt!'}).then(function(sent) {
+    var id = Math.floor(Math.random() * rekt.length)
+
+    bot.sendDocument(msg.chat.id, rekt[id], {caption: 'Someone got rekt!'}).then(function(sent) {
       console.log('REKT SENT')
     }).catch(function(a,b,c) {
       console.error(a,b,c)
