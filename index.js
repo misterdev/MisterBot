@@ -1,4 +1,5 @@
 var aerumtor = 213240765; 
+var me = 27920409;
 
 var TelegramBot = require('node-telegram-bot-api');
 
@@ -24,9 +25,7 @@ var rekt = [
 ]
 bot.onText(/#rekt/ig, function (msg, match) {
   // if( msg.chat.id == -115069639) {
-
     var id = Math.floor(Math.random() * rekt.length)
-
     bot.sendDocument(msg.chat.id, rekt[id], {caption: 'Someone got rekt!'}).then(function(sent) {
       console.log('REKT SENT')
     }).catch(function(a,b,c) {
@@ -34,6 +33,20 @@ bot.onText(/#rekt/ig, function (msg, match) {
     });
   // }
 });
+
+bot.onText(/#notrekt/ig, function (msg, match) {
+  console.log('not', msg, match)
+  var chatId = msg.chat.id;
+  var userId = msg.from.id;
+  var photo = 'https://i.ytimg.com/vi/HO8ctP_QNZc/maxresdefault.jpg';
+  if(userId === me) {
+    bot.sendPhoto(chatId, photo, {caption: ''}).then(function(sent) {
+      console.log('REKT SENT')
+    }).catch(function(a,b,c) {
+      console.error(a,b,c)
+    });
+  }
+})
 
 bot.onText(/\/triggered/ig, function (msg, match) {
   if(msg.from.id === 27920409 && msg.chat.id === 27920409 || msg.from.id === 4454704 && msg.chat.id === 4454704) {//
@@ -101,7 +114,7 @@ bot.onText(/dab/ig, function (msg, match) {
   // photo can be: a file path, a stream or a Telegram file_id
   var photo = 'https://media.giphy.com/media/l3zoKeX8bMG5sMP4s/giphy.gif';
 
-  bot.sendDocument(chatId, photo, {caption: 'ALLARME PORCO!'}).then(function(sent) {
+  bot.sendDocument(chatId, photo, {caption: 'Get dabbed!'}).then(function(sent) {
     console.log('UNIH SENT')
   }).catch(function(a,b,c) {
     console.error(a,b,c)
