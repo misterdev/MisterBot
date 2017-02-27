@@ -89,18 +89,18 @@ bot.onText(/^culo$/ig, function (msg, match) {
   }
 });
 
-bot.onText(/n4t4l3/ig, function (msg, match) {
-  console.log(msg, match)
-  var chatId = msg.chat.id;
-  var resp = msg.text.replace(/n4t4l3/ig, 'natale');
-  bot.sendMessage(chatId, resp);
-});
+// bot.onText(/n4t4l3/ig, function (msg, match) {
+//   console.log(msg, match)
+//   var chatId = msg.chat.id;
+//   var resp = msg.text.replace(/n4t4l3/ig, 'natale');
+//   bot.sendMessage(chatId, resp);
+// });
 
 
 
 bot.on('new_chat_participant', function(msg) {
   var chatId = msg.chat.id;
-  var string = 'Benvenuto '+ msg.new_chat_member.first_name +'! Chi sei?';
+  var string = 'Benvenuto '+ msg.new_chat_member.first_name +'! Di cosa puzzi?';
   bot.sendMessage(chatId, string);
 });
 
@@ -122,7 +122,6 @@ bot.onText(/dab/ig, function (msg, match) {
 });
 
 bot.onText(/allarmeporco/ig, function (msg, match) {
-  console.log('UNIH')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
   var photo = 'http://i.giphy.com/N2C4cpZ3lRhvO.gif';
@@ -133,6 +132,7 @@ bot.onText(/allarmeporco/ig, function (msg, match) {
     console.error(a,b,c)
   });
 });
+
 bot.onText(/misterbot\?/ig, function (msg, match) {
   var fromId = msg.chat.id;
   var resp = 'Ciao sono MisterBot e sono diventato un bot bravo, infatti ora utilizzo le API ufficiali. '+ 
@@ -140,26 +140,28 @@ bot.onText(/misterbot\?/ig, function (msg, match) {
   'Ringrazio il Doge Team per il supporto alla mia creazione ';
   bot.sendMessage(fromId, resp);
 });
-bot.onText(/\/tesi/ig, function (msg, match) {
-  var fromId = msg.chat.id;
-  var resp = `
-Stile by cianca: 
-http://www.cs.unibo.it/~cianca/wwwpages/consigli.html
 
-Tesi by Vitali:
-http://tesi.fabio.web.cs.unibo.it/Tesi/TesiLaDissertazione
+// bot.onText(/\/tesi/ig, function (msg, match) {
+//   var fromId = msg.chat.id;
+//   var resp = `
+// Stile by cianca: 
+// http://www.cs.unibo.it/~cianca/wwwpages/consigli.html
 
-LateX by unibo:
-http://corsi.unibo.it/informatica/Pagine/tesi-in-latex.aspx
-  `;
-  bot.sendMessage(fromId, resp);
-});
+// Tesi by Vitali:
+// http://tesi.fabio.web.cs.unibo.it/Tesi/TesiLaDissertazione
+
+// LateX by unibo:
+// http://corsi.unibo.it/informatica/Pagine/tesi-in-latex.aspx
+//   `;
+//   bot.sendMessage(fromId, resp);
+// });
+
 bot.onText(/unih/ig, function (msg, match) {
   console.log('UNIH')
   var chatId = msg.chat.id;
   // photo can be: a file path, a stream or a Telegram file_id
-  var photo = 'https://s4.postimg.org/99mai2kgt/Screen_Shot_2016_09_20_at_19_23_37_2.png';
-
+  // var photo = 'https://s4.postimg.org/99mai2kgt/Screen_Shot_2016_09_20_at_19_23_37_2.png';
+  var photo = 'https://s3.postimg.org/ag52upvnn/photo587983717960002_6_Zyfk.jpg'
   bot.sendPhoto(chatId, photo, {caption: 'Almeno ringrazia, 5 euro dai...'}).then(function(sent) {
     console.log('UNIH SENT')
   }).catch(function(a,b,c) {
@@ -324,9 +326,9 @@ bot.onText(/del\ genere/ig, function (msg, match) {
 var moment = require('moment');
 var exams = {};
 
-exams['Basi di Dati'] = ['17/01/2017', '23/05/2017', '06/06/2017', '27/06/2017', '12/09/2017']
-exams['Algoritmi @aula pincherle'] = ['19/01/2017 13:00', '10/02/2017 11:00']
-exams['UUX - mattina scritto/pomeriggio orale'] = ['18/01/2017',  '15/02/2017']
+exams['Basi di Dati'] = ['23/05/2017', '06/06/2017', '27/06/2017', '12/09/2017']
+// exams['Algoritmi @aula pincherle'] = ['19/01/2017 13:00', '10/02/2017 11:00']
+// exams['UUX - mattina scritto/pomeriggio orale'] = ['18/01/2017',  '15/02/2017']
 
 bot.onText(/\/esami/, (msg) => {
   var chatId = msg.chat.id;
