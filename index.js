@@ -376,3 +376,27 @@ bot.onText(/doge/ig, (msg) => {
 })
 
 
+var explosions = [
+  'https://media.giphy.com/media/Jt2hioTrGEDHW/giphy.gif',
+  'http://i.giphy.com/RWwzyQLBeLJbq.gif',
+  'http://i.giphy.com/QIrN5WRhpRpPW.gif',
+  'http://i.giphy.com/8gVd1OX3st6nu.gif',
+  'http://i.giphy.com/RvKEaRAyvzsTC.gif',
+  'http://i.giphy.com/1BXLbshE7ICNW.gif',
+  'http://i.giphy.com/Tfuee4rkfzXkA.gif',
+  'http://i.giphy.com/w6WyJW2yUmwH6.gif'
+  // 'https://i.ytimg.com/vi/gPxJAx7ysVA/maxresdefault.jpg'
+]
+bot.onText(/inciampelli/ig, function (msg, match) {
+  // if( msg.chat.id == -115069639) {
+    var id = Math.floor(Math.random() * explosions.length)
+    bot.sendDocument(msg.chat.id, explosions[id], {caption: "S'è inciampato gabrielli"}).then(function(sent) {
+      console.log('REKT SENT')
+    }).catch(function(a,b,c) {
+      console.error(a,b,c)
+    });
+  // }
+});
+
+
+
