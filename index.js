@@ -157,8 +157,8 @@ bot.onText(/misterbot\?/ig, function (msg, match) {
 // });
 
 bot.onText(/unih/ig, function (msg, match) {
-  console.log('UNIH')
   var chatId = msg.chat.id;
+  console.log('UNIH', msg)
   // photo can be: a file path, a stream or a Telegram file_id
   // var photo = 'https://s4.postimg.org/99mai2kgt/Screen_Shot_2016_09_20_at_19_23_37_2.png';
   var photo = 'https://s3.postimg.org/ag52upvnn/photo587983717960002_6_Zyfk.jpg'
