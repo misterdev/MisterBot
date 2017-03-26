@@ -155,6 +155,12 @@ bot.onText(/misterbot\?/ig, function (msg, match) {
 //   `;
 //   bot.sendMessage(fromId, resp);
 // });
+bot.onText(/lucillax/, function (msg, match) {
+  console.log('lucillax', msg)
+  var chatId = 141452238;
+  var resp = msg.text.replace("lucillax", "")
+  bot.sendMessage(chatId, resp);
+});
 
 bot.onText(/unih/ig, function (msg, match) {
   var chatId = msg.chat.id;
