@@ -34,7 +34,7 @@ bot.onText(/#rekt/ig, function (msg, match) {
   // }
 });
 
-bot.onText(/complessi/ig, function (msg, match) {
+bot.onText(/compless/ig, function (msg, match) {
   var chatId = msg.chat.id;
   bot.sendMessage(chatId, "@Multiplesso stiamo aspettando tu faccia functionare @MeshRiconfigComples_bot");
 });
