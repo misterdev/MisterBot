@@ -1,3 +1,33 @@
+// { message_id: 35260,
+//   from: 
+//    { id: 27920409,
+//      first_name: 'Dev',
+//      username: 'MisterDev',
+//      language_code: 'en-GB' },
+//   chat: 
+//    { id: 27920409,
+//      first_name: 'Dev',
+//      username: 'MisterDev',
+//      type: 'private' },
+//   date: 1497203843,
+//   text: 'we' } [ 'we', index: 0, input: 'we' ] undefined undefined
+
+
+  
+// { message_id: 35262,
+//   from: 
+//    { id: 27920409,
+//      first_name: 'Dev',
+//      username: 'MisterDev',
+//      language_code: 'en-GB' },
+//   chat: 
+//    { id: -115069639,
+//      title: 'DOGE Team - TRGDGB',
+//      type: 'group',
+//      all_members_are_administrators: false },
+//   date: 1497203863,
+//   text: 'prova' } [ 'prova', index: 0, input: 'prova' ] 
+
 var aerumtor = 213240765; 
 var me = 27920409;
 
@@ -23,6 +53,19 @@ var rekt = [
   'https://media.giphy.com/media/5HFtrdH9r511m/giphy.gif'
   // 'http://i.imgur.com/sNlR0KG.jpg'
 ]
+bot.on('message', function(msg) {
+  if(msg.chat.type === 'private') {
+    var text = msg.from.first_name + " @" + msg.from.username + ":\n";
+
+    if(msg.photo) {
+      text += msg.caption;
+      bot.sendPhoto(me, msg.photo[0].file_id)
+    }
+    if(msg.text) text += msg.text;
+    bot.sendMessage(me, text);
+  }
+})
+
 bot.onText(/#rekt/ig, function (msg, match) {
   // if( msg.chat.id == -115069639) {
     var id = Math.floor(Math.random() * rekt.length)
@@ -103,11 +146,11 @@ bot.onText(/^culo$/ig, function (msg, match) {
 
 
 
-bot.on('new_chat_participant', function(msg) {
-  var chatId = msg.chat.id;
-  var string = 'Benvenuto '+ msg.new_chat_member.first_name +'! Di cosa puzzi?';
-  bot.sendMessage(chatId, string);
-});
+// bot.on('new_chat_participant', function(msg) {
+//   var chatId = msg.chat.id;
+//   var string = 'Benvenuto '+ msg.new_chat_member.first_name +'! Di cosa puzzi?';
+//   bot.sendMessage(chatId, string);
+// });
 
 // bot.on('message', function (msg, x) {
 //   console.log('YYYYYYYYY', msg, x)
@@ -335,29 +378,29 @@ bot.onText(/del\ genere/ig, function (msg, match) {
 //     )
 
 var moment = require('moment');
-var exams = {};
+// var exams = {};
 
-exams['Basi di Dati'] = ['23/05/2017', '06/06/2017', '27/06/2017', '12/09/2017']
-// exams['Algoritmi @aula pincherle'] = ['19/01/2017 13:00', '10/02/2017 11:00']
-// exams['UUX - mattina scritto/pomeriggio orale'] = ['18/01/2017',  '15/02/2017']
+// exams['Basi di Dati'] = ['23/05/2017', '06/06/2017', '27/06/2017', '12/09/2017']
+// // exams['Algoritmi @aula pincherle'] = ['19/01/2017 13:00', '10/02/2017 11:00']
+// // exams['UUX - mattina scritto/pomeriggio orale'] = ['18/01/2017',  '15/02/2017']
 
-bot.onText(/\/esami/, (msg) => {
-  var chatId = msg.chat.id;
-  var text = '';
-  for(var sub in exams) {
-    text += '<b>' + sub +'</b><pre>';
-    for(var date of exams[sub]) {
-      var d = moment(date, 'DD/MM/YYYY HH:mm');
-      text += d.format('DD/MM')
-      var h = d.format('HH');
-      console.error(h)
-      if(h !== moment('00').format('HH')) text += ' h' + h;// + '(' + moment(date, 'DD/MM/YYYY').toNow(true) + ') - '
-      text += ' - ';
-    }
-    text = text.substring(0, text.length -2) + '</pre>\n';
-  }
-  bot.sendMessage(chatId, text, { parse_mode: "HTML" });
-})
+// bot.onText(/\/esami/, (msg) => {
+//   var chatId = msg.chat.id;
+//   var text = '';
+//   for(var sub in exams) {
+//     text += '<b>' + sub +'</b><pre>';
+//     for(var date of exams[sub]) {
+//       var d = moment(date, 'DD/MM/YYYY HH:mm');
+//       text += d.format('DD/MM')
+//       var h = d.format('HH');
+//       console.error(h)
+//       if(h !== moment('00').format('HH')) text += ' h' + h;// + '(' + moment(date, 'DD/MM/YYYY').toNow(true) + ') - '
+//       text += ' - ';
+//     }
+//     text = text.substring(0, text.length -2) + '</pre>\n';
+//   }
+//   bot.sendMessage(chatId, text, { parse_mode: "HTML" });
+// })
 
 var doges = [
   'http://doge2048.com/img/212/doge-derp-212.gif',
@@ -387,27 +430,27 @@ bot.onText(/doge/ig, (msg) => {
 })
 
 
-var explosions = [
-  'https://media.giphy.com/media/Jt2hioTrGEDHW/giphy.gif',
-  'http://i.giphy.com/RWwzyQLBeLJbq.gif',
-  'http://i.giphy.com/QIrN5WRhpRpPW.gif',
-  'http://i.giphy.com/8gVd1OX3st6nu.gif',
-  'http://i.giphy.com/RvKEaRAyvzsTC.gif',
-  'http://i.giphy.com/1BXLbshE7ICNW.gif',
-  'http://i.giphy.com/Tfuee4rkfzXkA.gif',
-  'http://i.giphy.com/w6WyJW2yUmwH6.gif'
-  // 'https://i.ytimg.com/vi/gPxJAx7ysVA/maxresdefault.jpg'
-]
-bot.onText(/inciampelli/ig, function (msg, match) {
-  // if( msg.chat.id == -115069639) {
-    var id = Math.floor(Math.random() * explosions.length)
-    bot.sendDocument(msg.chat.id, explosions[id], {caption: "S'è inciampato gabrielli"}).then(function(sent) {
-      console.log('REKT SENT')
-    }).catch(function(a,b,c) {
-      console.error(a,b,c)
-    });
-  // }
-});
+// var explosions = [
+//   'https://media.giphy.com/media/Jt2hioTrGEDHW/giphy.gif',
+//   'http://i.giphy.com/RWwzyQLBeLJbq.gif',
+//   'http://i.giphy.com/QIrN5WRhpRpPW.gif',
+//   'http://i.giphy.com/8gVd1OX3st6nu.gif',
+//   'http://i.giphy.com/RvKEaRAyvzsTC.gif',
+//   'http://i.giphy.com/1BXLbshE7ICNW.gif',
+//   'http://i.giphy.com/Tfuee4rkfzXkA.gif',
+//   'http://i.giphy.com/w6WyJW2yUmwH6.gif'
+//   // 'https://i.ytimg.com/vi/gPxJAx7ysVA/maxresdefault.jpg'
+// ]
+// bot.onText(/inciampelli/ig, function (msg, match) {
+//   // if( msg.chat.id == -115069639) {
+//     var id = Math.floor(Math.random() * explosions.length)
+//     bot.sendDocument(msg.chat.id, explosions[id], {caption: "S'è inciampato gabrielli"}).then(function(sent) {
+//       console.log('REKT SENT')
+//     }).catch(function(a,b,c) {
+//       console.error(a,b,c)
+//     });
+//   // }
+// });
 
 
 
