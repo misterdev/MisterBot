@@ -30,6 +30,7 @@
 
 var aerumtor = 213240765; 
 var me = 27920409;
+var lucillax = 141452238;
 
 var TelegramBot = require('node-telegram-bot-api');
 
@@ -55,16 +56,45 @@ var rekt = [
 ]
 bot.on('message', function(msg) {
   if(msg.chat.type === 'private') {
-    var text = msg.from.first_name + " @" + msg.from.username + ":\n";
+    if(msg.from.id !== me) {
+      var text = 'ORELLO'+msg.from.first_name + " @" + msg.from.username + ":\n";
 
-    if(msg.photo) {
-      text += msg.caption;
-      bot.sendPhoto(me, msg.photo[0].file_id)
+      if(msg.photo) {
+        text += msg.caption || '';
+        bot.sendPhoto(me, msg.photo[0].file_id, {caption: text})
+      } else if( msg.document ) {
+        text += msg.caption || '';
+        bot.sendDocument(me, msg.document.file_id, {caption: text})
+      } else {
+        if(msg.text) text += msg.text;
+        bot.sendMessage(me, text);
+      }
+
+    } else {
+      if( (msg.caption && msg.caption.startsWith('lucillax') ) ) {
+        var text = msg.caption;
+        if(text) text = text.replace('lucillax', '')
+
+        bot.sendPhoto(lucillax, msg.photo[0].file_id, {caption: text})
+        bot.sendPhoto(me, msg.photo[0].file_id, {caption: text})
+      }
     }
-    if(msg.text) text += msg.text;
-    bot.sendMessage(me, text);
   }
 })
+
+bot.onText(/lucillax/, function (msg, match) {
+  console.log('lucillax', msg)
+  var resp = msg.text.replace("lucillax", "")
+  bot.sendMessage(lucillax, resp);
+  bot.sendMessage(me, resp);
+});
+
+bot.onText(/devidex/, function (msg, match) {
+  console.log('devidex', msg)
+  var resp = msg.text.replace("devidex", "")
+  bot.sendMessage(me, resp);
+});
+
 
 bot.onText(/#rekt/ig, function (msg, match) {
   // if( msg.chat.id == -115069639) {
@@ -203,12 +233,7 @@ bot.onText(/misterbot\?/ig, function (msg, match) {
 //   `;
 //   bot.sendMessage(fromId, resp);
 // });
-bot.onText(/lucillax/, function (msg, match) {
-  console.log('lucillax', msg)
-  var chatId = 141452238;
-  var resp = msg.text.replace("lucillax", "")
-  bot.sendMessage(chatId, resp);
-});
+
 
 bot.onText(/unih/ig, function (msg, match) {
   var chatId = msg.chat.id;
