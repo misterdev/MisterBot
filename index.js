@@ -57,7 +57,8 @@ var rekt = [
 bot.on('message', function(msg) {
   if(msg.chat.type === 'private') {
     if(msg.from.id !== me && msg.from.id !== lucillax ) {
-      var text = msg.from.first_name + " @" + msg.from.username + ":\n";
+      console.log(msg)
+      var text = msg.from.first_name + " @" + msg.from.username + " ID: "+ msg.from.id + " :\n";
 
       if(msg.photo) {
         text += msg.caption || '';
