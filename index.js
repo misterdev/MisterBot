@@ -58,7 +58,7 @@ var rekt = [
 var now = new Date();
 var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 11, 18, 0, 0) - now;
 
-bot.sendMessage(me, now + ' ' millisTill10);
+bot.sendMessage(me, now + ' ' + millisTill10);
 if (millisTill10 < 0) {
      millisTill10 += 86400000; // it's after 10am, try 10am tomorrow.
 }
