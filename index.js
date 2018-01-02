@@ -54,6 +54,18 @@ var rekt = [
   'https://media.giphy.com/media/5HFtrdH9r511m/giphy.gif'
   // 'http://i.imgur.com/sNlR0KG.jpg'
 ]
+
+var now = new Date();
+var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 11, 18, 0, 0) - now;
+
+bot.sendMessage(me, now + ' ' millisTill10);
+if (millisTill10 < 0) {
+     millisTill10 += 86400000; // it's after 10am, try 10am tomorrow.
+}
+setTimeout(function(){
+  bot.sendMessage(me, 'text');
+}, millisTill10);
+
 bot.on('message', function(msg) {
   if(msg.chat.type === 'private') {
     if(msg.from.id !== me && msg.from.id !== lucillax ) {
