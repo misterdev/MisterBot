@@ -4,8 +4,9 @@
     "description": "My telegram bot",
     "main": "src/index.js",
     "scripts": {
-        "start": "npm run build && node dist/bundle.js",
-        "test": "node src/index.js",
+        "start": "node dist/bundle.js",
+        "test": "npm run build && npm run start",
+        "test:dev": "node src/index.js",
         "build": "webpack"
     },
     "repository": {
