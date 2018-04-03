@@ -14,6 +14,7 @@
 //   text: 'prova' } [ 'prova', index: 0, input: 'prova' ] 
 
 import TelegramBot from 'node-telegram-bot-api'
+import { DateTime, Interval } from 'luxon'
 
 // TODO
 var token = '266208728:AAHsolf1IVFQ3I6OWPv6PMQK_3T6jsPWb5E' || process.env.TOKEN
@@ -38,19 +39,24 @@ const doges = [
 // STARTUP
 const bot = new TelegramBot(token, { polling: true })
 
-bot.sendMessage(me, `[${new Date}]      TELEBOT - STARTED`)
-console.log(`[${new Date}]      TELEBOT - STARTED`)
+// bot.sendMessage(me, `[${new Date}]      TELEBOT - STARTED`)
+// console.log(`[${new Date}]      TELEBOT - STARTED`)
 
 // SETUP TIMER
+const now = DateTime.local().setZone('Europe/Rome')
+const t2045 = DateTime.local(now.year, now.month, now.day)
+bot.sendMessage(me, `${now.ts}, ${now.hour} [${new Date}]      TELEBOT - STARTED`)
+console.log(`${now.ts}, ${now.hour}`)
+    // console.log(Interval.before(Date)
 
 // HOOKS SETUP
 
-bot.on('message', logger)
-bot.onText(/^erik$/ig, onErik)
-bot.onText(/doge/ig, onDoge)
-bot.onText(/\/suriettiv*/ig, onSuriettiv)
-bot.onText(/\/iniettiv*/ig, onIniettiv)
-bot.onText(/\/trigo$/ig, onTrigo)
+// bot.on('message', logger)
+// bot.onText(/^erik$/ig, onErik)
+// bot.onText(/doge/ig, onDoge)
+// bot.onText(/\/suriettiv*/ig, onSuriettiv)
+// bot.onText(/\/iniettiv*/ig, onIniettiv)
+// bot.onText(/\/trigo$/ig, onTrigo)
 
 // HANDLERS
 

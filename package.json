@@ -26,17 +26,16 @@
     },
     "homepage": "https://github.com/MisterDev/telebot#readme",
     "devDependencies": {
-        "webpack": "^4.4.1",
-        "webpack-cli": "^2.0.13"
-    },
-    "dependencies": {
         "@babel/core": "^7.0.0-beta.44",
         "@babel/preset-env": "^7.0.0-beta.44",
         "babel-core": "^6.26.0",
         "babel-loader": "^8.0.0-beta",
-        "babel-preset-env": "^1.6.1",
-        "moment": "^2.22.0",
+        "webpack": "^4.4.1",
+        "webpack-cli": "^2.0.13"
+    },
+    "dependencies": {
+        "luxon": "^1.0.0",
         "node-telegram-bot-api": "^0.30.0",
-        "webpack-dev-server": "^3.1.1"
+        "nodemon": "^1.17.3"
     }
 }
