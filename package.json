@@ -6,7 +6,6 @@
     "scripts": {
         "start": "node dist/bundle.js",
         "test": "npm run build && npm run start",
-        "test:dev": "node src/index.js",
         "build": "webpack",
         "deploy": "npm run build && git add dist/bundle.js && git commit -m \"heroku deploy\" && git push heroku master"
     },
