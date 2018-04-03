@@ -1,18 +1,32 @@
 {
-  "name": "telebot",
-  "version": "1.0.0",
-  "description": "A bot",
-  "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
-  "engines": {
-    "node": "6.2.2"
-  },
-  "author": "Devid Farinelli",
-  "license": "ISC",
-  "dependencies": {
-    "moment": "^2.15.1",
-    "node-telegram-bot-api": "^0.23.3"
-  }
+    "name": "misterdevbot",
+    "version": "2.0.0",
+    "description": "My telegram bot",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MisterDev/telebot.git"
+    },
+    "keywords": [
+        "telegram",
+        "bot",
+        "doge",
+        "misterdev"
+    ],
+    "author": "@MisterDev",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MisterDev/telebot/issues"
+    },
+    "homepage": "https://github.com/MisterDev/telebot#readme",
+    "devDependencies": {},
+    "dependencies": {
+        "moment": "^2.22.0",
+        "node-telegram-bot-api": "^0.30.0",
+        "npm": "^5.8.0"
+    }
 }
