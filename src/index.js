@@ -14,8 +14,7 @@
 //   text: 'prova' } [ 'prova', index: 0, input: 'prova' ] 
 
 import TelegramBot from 'node-telegram-bot-api'
-import { DateTime, Interval } from 'luxon'
-
+import { CronJob } from 'cron'
 // TODO
 var token = '266208728:AAHsolf1IVFQ3I6OWPv6PMQK_3T6jsPWb5E' || process.env.TOKEN
 var crt = 'MIIC3zCCAccCAQAwazELMAkGA1UEBhMCSVQxEDAOBgNVBAgTB0JvbG9nbmExETAPBgNVBAcTCE1pbmVyYmlvMQ0wCwYDVQQDEwRGT09OMSgwJgYJKoZIhvcNAQkBFhlkZXZpZC5mYXJpbmVsbGlAZ21haWwuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA47Kw423OEmpcsSNSdsZyTh6Xy1W+U+w/GFUiHrcwXdKJ0Fe2UCdaR4hU61ZTq+nVLvbGl6OY3svQsESvnig3OW1Fc28K69bcxofNCd3jolRiNrPw4FDTkZtXpm0apppH42aLJtz87cMFSKeLVS/xBzypjVAejHfRw4gGrEwwJJYcd3xEUCR42HXcZ7b6DayhbdxkYzAOYPtaMj0v4ZqG8IO0/dm8X6EDGseoDRFka+5noP4ifjmN7HFNsDUuKu0BVHbf+WN/7djjUTYHDzP8BOdzmtdTPEedMI61sZ6Ey3G7O/FVkPkGDUZN/F64lXcKjQsbwI3xNoM2HH8P4GomjwIDAQABoC8wFQYJKoZIhvcNAQkHMQgTBmxvbGxvMTAWBgkqhkiG9w0BCQIxCRMHZGV2IHNybDANBgkqhkiG9w0BAQsFAAOCAQEALeohDSbdbIVPy54N24qnigakLxjshVRbQQS6qeGkzKgz3y6LfVisDrXmguAY4KfXOAN1KgsF07VVrPhMtXSe+LvvDMe/xZ3JoJK98mJ8yCDoQk2h2WEur52A1I3wYml0+qS/9bWRvoRxlk8I2WTQWa61ri7oVusWpFCll1fu7HvD6/OulfKcktfOWlLyNJVaa1fR2TQgyLOTmFoJyI0ug9CvKkFnrnrbJL3iLrhtrgoADvrtZbLS8jHMWy7BsNeyRkBrmexOLb6kzmmAOjLp6RqOpVJQXZ4Gtv8xSZeaUDMVBDIDyOG3BZe1JWPAyS9Lx8uAviHJC+6fv3ZHIP6E4w=='
@@ -39,24 +38,20 @@ const doges = [
 // STARTUP
 const bot = new TelegramBot(token, { polling: true })
 
-// bot.sendMessage(me, `[${new Date}]      TELEBOT - STARTED`)
-// console.log(`[${new Date}]      TELEBOT - STARTED`)
+console.log(`[${new Date}]      TELEBOT - STARTED`)
+bot.sendMessage(me, `[${new Date}]      TELEBOT - STARTED`)
 
 // SETUP TIMER
-const now = DateTime.local().setZone('Europe/Rome')
-const t2045 = DateTime.local(now.year, now.month, now.day)
-bot.sendMessage(me, `${now.ts}, ${now.hour} [${new Date}]      TELEBOT - STARTED`)
-console.log(`${now.ts}, ${now.hour}`)
-    // console.log(Interval.before(Date)
+dailyReminder()
 
 // HOOKS SETUP
 
-// bot.on('message', logger)
-// bot.onText(/^erik$/ig, onErik)
-// bot.onText(/doge/ig, onDoge)
-// bot.onText(/\/suriettiv*/ig, onSuriettiv)
-// bot.onText(/\/iniettiv*/ig, onIniettiv)
-// bot.onText(/\/trigo$/ig, onTrigo)
+bot.on('message', logger)
+bot.onText(/^erik$/ig, onErik)
+bot.onText(/doge/ig, onDoge)
+bot.onText(/\/suriettiv*/ig, onSuriettiv)
+bot.onText(/\/iniettiv*/ig, onIniettiv)
+bot.onText(/\/trigo$/ig, onTrigo)
 
 // HANDLERS
 
@@ -121,7 +116,9 @@ function onTrigo(msg, match) {
     bot.sendMessage(chatID, photo, { caption: 'Non imparerai mai la trigonometria, merda!' })
 }
 
-function customReminder() {
-    bot.sendMessage(me, "Pillola 💚")
-        // bot.sendMessage(lu, "Pillola 💚")
+function dailyReminder() {
+    new CronJob('00 45 20 * * *', function() {
+        bot.sendMessage(me, "Pillola 💚")
+        bot.sendMessage(lu, "Pillola 💚")
+    }, null, true, 'Europe/Rome')
 }

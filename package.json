@@ -7,7 +7,8 @@
         "start": "node dist/bundle.js",
         "test": "npm run build && npm run start",
         "test:dev": "node src/index.js",
-        "build": "webpack"
+        "build": "webpack",
+        "deploy": "npm run build && git add dist/bundle.js && git commit -m \"heroku deploy\" && git push heroku master"
     },
     "repository": {
         "type": "git",
@@ -34,8 +35,7 @@
         "webpack-cli": "^2.0.13"
     },
     "dependencies": {
-        "luxon": "^1.0.0",
-        "node-telegram-bot-api": "^0.30.0",
-        "nodemon": "^1.17.3"
+        "cron": "https://github.com/kelektiv/node-cron.git",
+        "node-telegram-bot-api": "^0.30.0"
     }
 }
