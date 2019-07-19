@@ -16,7 +16,7 @@
 import TelegramBot from 'node-telegram-bot-api'
 import { CronJob } from 'cron'
 
-const token = process.env.MISTERDEVBOT_API_KEY;
+const token = process.env.MISTERDEVBOT_API_KEY
 
 const me = 27920409
 const lu = 141452238
