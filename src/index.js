@@ -73,7 +73,7 @@ function logger(msg, a) {
     if (msg.chat.type === 'private') {
         if (fromID !== me && fromID !== lu) {
             const { first_name, username } = msg.from
-            let text = `MSG RECEIVED: ${first_name} @ username - ID: ${fromID} \n`
+            let text = `MSG RECEIVED: ${first_name} @${username} - ID: ${fromID} \n`
 
             if (msg.photo) {
                 text += msg.caption || ''
